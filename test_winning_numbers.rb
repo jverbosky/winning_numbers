@@ -7,9 +7,15 @@ require_relative "winning_numbers.rb"
 
 class TestWinningNumbers < Minitest::Test
 
-	def test_1_
-		results = winning_numbers(3, [1, 2, 3, 4, 5])
+	def test_1_return_true_if_number_is_in_array
+		results = winning_numbers(32830, [11829, 23891, 32830, 44983, 59203])
 		assert_equal(true, results)
 	end
+
+	def test_2_return_false_if_number_is_not_in_array
+		results = winning_numbers(32831, [11829, 23891, 32830, 44983, 59203])
+		assert_equal(false, results)
+	end
+
 
 end
