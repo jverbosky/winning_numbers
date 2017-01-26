@@ -1,4 +1,5 @@
 # Test for winning_numbers.rb
+# Reviewed and re-tested for 1/26 - Homework Part 2 submission
 
 require "minitest/autorun"
 

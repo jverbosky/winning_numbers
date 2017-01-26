@@ -1,4 +1,5 @@
 # Determine if the specified number is in the specified array
+# Reviewed and re-tested for 1/26 - Homework Part 2 submission
 
 # Sandbox testing variables
 # number = 5
@@ -11,7 +12,8 @@
 # end
 
 # Method 2 - using .empty? and clarification output
-# Jon advised that it's not good practice to set a boolean true to false (line 31)
+# Jon advised that it's not good practice to set a boolean true to false (line 31),
+# so tweaked in Method 3
 # def winning_numbers(num, set)
 # 	yes = []
 # 	no = []
