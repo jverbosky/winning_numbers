@@ -142,22 +142,17 @@ def find_unclaimed_winning_numbers(ticket_numbers, winning_numbers)
       set_1 = winner.split("")  # convert the current winning number into an array of digits
       set_2 = ticket.split("")  # convert the ticket number into an array of digits
       digits_off = 0  # counter for winning number digits that are off compared to ticket number digit
-      #greater_than_one = 0  # counter for winning number digits off by more than one
       comparison_set = set_1.zip(set_2)  # use .zip method to pair up winning and ticket number digits in multi-d array
 
       comparison_set.each do |inner|  # iterate through each inner array (pair of digits) to compare
         if inner[0] != inner[1]  # check if the digits are identical and if they are not...
-          #if (inner[0].to_i - inner[1].to_i).abs == 1  # check if the digits are off by +/- 1
           digits_off += 1  # if so, increment the off_by_one counter
-          #elsif (inner[0].to_i - inner[1].to_i).abs > 1  # check if the digits are off by more than 1
-          #  greater_than_one += 1  # if so, increment the greater_than_one counter
-          #end  # end the conditional counter increment statements
         end  # restart the loop and compare the next pair of digits
       end  # end the comparison_set.each loop
 
       if ticket == winner  # if the ticket number matches the winning number
         winning_tickets.push(ticket)  # push the winning number to the appropriate array
-      elsif digits_off == 1 # && greater_than_one == 0  # or if the ticket number is off by one
+      elsif digits_off == 1 # if only one digit is off
         ticket_numbers_off_by_one_digit.push(ticket)  # push the ticket numbers off by one to the appropriate array
         winning_numbers_off_by_one_digit.push(winner)  # and push the corresponding winning numbers to their own array
       end  # start the next winning_numbers iteration to compare the ticket number against the next winning number
@@ -169,7 +164,7 @@ def find_unclaimed_winning_numbers(ticket_numbers, winning_numbers)
   end  # end the ticket_numbers.each loop
 
   return unclaimed_winning_numbers  # return array of unclaimed winning numbers
-                                    # note that we could also return the winning and off-by-one tickets here
+                                    # note that we could also return the winning and off-by-one-digit tickets here
 
 end
 
